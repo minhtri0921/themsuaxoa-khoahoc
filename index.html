@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <label>Tên khóa học : </label>
+        <input id="name">
+        <span class="form-message"></span>
+    </div>
+    <div>
+        <label>Mô tả khóa học : </label>
+        <input id="description">
+        <span class="form-message"></span>
+    </div>
+    <button id="add" >Thêm</button>
+    <p id="error-message"></p>
+    <button id="updt" style="display: none;">Sửa</button>
+    <h2>Danh sách khóa học</h2>
+    <ul id="list-courses"></ul>
+</body>
+<script src="lib/axios.min.js"></script>
+<script src="lib/jquery-3.6.3.min.js"></script>
+<script src="main2.js"></script>
+
+</html>
