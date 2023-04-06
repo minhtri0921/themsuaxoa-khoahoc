@@ -46,19 +46,25 @@ $('#add').click(async function () {
     let newName = $("input#name").val()
     let newDescription = $("input#description").val()
 
-    let formData = {
-        name: newName,
-        description: newDescription
+    if (newName && newDescription) {
+        $("p#error-message").text('')
+        let formData = {
+            name: newName,
+            description: newDescription
+        }
+
+        await axios({
+            method: "POST",
+            url: 'http://localhost:3004/courses',
+            data: JSON.stringify(formData),
+            headers: { "Content-Type": "application/json" },
+        })
+
+        getData()
+    } else {
+        $("p#error-message").attr('style', 'color: red; font-style: italic;')
+        $("p#error-message").text('Vui lòng nhập đầy đủ thông tin')
     }
-
-    await axios({
-        method: "POST",
-        url: 'http://localhost:3004/courses',
-        data: JSON.stringify(formData),
-        headers: { "Content-Type": "application/json" },
-    })
-
-    getData()
 })
 
 function update(id) {
@@ -75,21 +81,27 @@ function update(id) {
         $("button#updt").toggle()
         let newName = $("input#name").val()
         let newDescription = $("input#description").val()
-        let formData = {
-            name: newName,
-            description: newDescription
+        if (newName && newDescription) {
+            let formData = {
+                name: newName,
+                description: newDescription
+            }
+
+            await axios({
+                method: "PUT",
+                url: 'http://localhost:3004/courses/' + id,
+                data: JSON.stringify(formData),
+                headers: { "Content-Type": "application/json" },
+            })
+            $("input#name").val('')
+            $("input#description").val('')
+            getData()
+        } else {
+            $("input#name").val('')
+            $("input#description").val('')
+            handleBlurInput(nameElement)
+            handleBlurInput(typeElement)
         }
-
-        await axios({
-            method: "PUT",
-            url: 'http://localhost:3004/courses/' + id,
-            data: JSON.stringify(formData),
-            headers: { "Content-Type": "application/json" },
-        })
-
-        getData()
-        $("input#name").val('')
-        $("input#description").val('')
     })
 }
 
