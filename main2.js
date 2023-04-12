@@ -23,8 +23,8 @@ async function getData() {
     displayCourse(listcourses)
 
 }
-getData()
-
+setTimeout(getData(), 500000)
+console.log(listcourses);
 let nameElement = $("input#name")
 let typeElement = $("input#description")
 function handleBlurInput(input) {
@@ -68,9 +68,11 @@ $('#add').click(async function () {
 })
 
 function update(id) {
+    console.log(listcourses);
     let courseUpdate = listcourses.find(function (course) {
         return course.id === id
     })
+    console.log(courseUpdate);
     $("input#name").val(courseUpdate.name)
     $("input#description").val(courseUpdate.description)
 
