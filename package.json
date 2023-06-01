@@ -1,0 +1,27 @@
+{
+  "name": "themsuaxoa-khoahoc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mysql2": "^3.3.3",
+    "nodemon": "^2.0.22"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/minhtri0921/themsuaxoa-khoahoc.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/minhtri0921/themsuaxoa-khoahoc/issues"
+  },
+  "homepage": "https://github.com/minhtri0921/themsuaxoa-khoahoc#readme"
+}
